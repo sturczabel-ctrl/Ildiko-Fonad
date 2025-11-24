@@ -547,3 +547,110 @@
                 gap: 4rem;
             }
         }
+
+/* ---------------
+   Custom fixes added to remove animations, remove brown borders, bring subtitle closer to name, and set WhatsApp button color
+   ---------------*/
+
+/* Remove animations / transitions on common interactive elements */
+.nav__menu,
+.nav__link,
+.button,
+.btn,
+.back-button,
+.footer__social-link,
+.footer__link {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  animation: none !important;
+}
+
+/* prevent movement on hover */
+.button:hover,
+.btn:hover,
+.back-button:hover,
+.footer__social-link:hover,
+.nav__link:hover {
+  transform: none !important;
+  -webkit-transform: none !important;
+  box-shadow: none !important;
+}
+
+/* disable any keyframe animations */
+* { animation-duration: 0s !important; animation-name: none !important; }
+
+/* Remove visible brown borders / left border on mobile menu and description border */
+.nav__menu {
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+.service-detail__description {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent;
+  padding: 0.75rem !important;
+}
+
+/* generic fallback to remove borders if other classes used */
+[style*="border"], .has-border, .card { border: none !important; }
+
+/* Bring subtitle closer to the name/title */
+.home__subtitle,
+.service-detail__subtitle,
+.about__subtitle,
+.section__subtitle {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0 !important;
+  display: block;
+  line-height: 1.1;
+  font-size: var(--h3-font-size);
+  color: var(--first-color);
+}
+
+.home__title,
+.service-detail__title,
+.about__title {
+  margin-bottom: 0 !important;
+}
+
+/* WhatsApp button - use the existing dark brown ( --first-color ) */
+a[href*="whatsapp"], a[href*="wa.me"] {
+  text-decoration: none;
+}
+
+/* common button selectors for WhatsApp links */
+a[href*="whatsapp"] .button,
+a[href*="whatsapp"] .btn,
+a[href*="wa.me"] .button,
+a[href*="wa.me"] .btn,
+.btn-whatsapp {
+  background: var(--first-color) !important;
+  border-color: var(--first-color) !important;
+  color: var(--white-color) !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+/* hover stays same, no movement */
+a[href*="whatsapp"] .button:hover,
+a[href*="whatsapp"] .btn:hover,
+a[href*="wa.me"] .button:hover,
+a[href*="wa.me"] .btn:hover,
+.btn-whatsapp:hover {
+  background: var(--first-color) !important;
+  color: var(--white-color) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* If you prefer a specific darker brown, uncomment and adjust the hex below */
+/*
+a[href*="whatsapp"] .button,
+a[href*="whatsapp"] .btn,
+.btn-whatsapp {
+  background: #5a3f2b !important;
+  border-color: #5a3f2b !important;
+}
+*/
